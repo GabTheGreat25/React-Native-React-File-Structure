@@ -1,38 +1,47 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-import { PokemonType } from "../../utils";
-import { componentStyles } from "../../styles";
+import { View, Text, Image, useWindowDimensions } from "react-native";
+import { PokemonType } from "@utils";
+import { createStyles } from "@styles";
 
-export default function ({ name, image, type, hp, moves, weaknesses }) {
+export default function MyComponent({
+  name,
+  image,
+  type,
+  hp,
+  moves,
+  weaknesses,
+}) {
   const { borderColor, emoji } = PokemonType(type);
+  const { height: windowHeight, width: windowWidth } = useWindowDimensions();
+  const styles = createStyles({ windowHeight, windowWidth });
 
   return (
-    <View style={componentStyles.card}>
-      <View style={componentStyles.nameContainer}>
-        <Text style={componentStyles.name}>{name}</Text>
-        <Text style={componentStyles.hp}>❤️HP: {hp}</Text>
+    <View style={styles.card}>
+      <View style={styles.nameContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.hp}>❤️HP: {hp}</Text>
       </View>
 
       <Image
         source={image}
         accessibilityLabel={`${name} Pokemon`}
-        style={componentStyles.image}
+        style={styles.image}
         resizeMode="contain"
       />
 
-      <View style={componentStyles.typeContainer}>
-        <View style={[componentStyles.badge, { borderColor }]}>
-          <Text style={componentStyles.typeEmoji}>{emoji}</Text>
-          <Text style={componentStyles.typeText}>{type}</Text>
+      <View style={styles.typeContainer}>
+        <View style={[styles.badge, { borderColor }]}>
+          <Text style={styles.typeEmoji}>{emoji}</Text>
+          <Text style={styles.typeText}>{type}</Text>
         </View>
       </View>
 
-      <View style={componentStyles.movesContainer}>
-        <Text style={componentStyles.movesText}>Moves: {moves.join(", ")}</Text>
+      <View style={styles.movesContainer}>
+        <Text style={styles.movesText}>Moves: {moves.join(", ")}</Text>
       </View>
 
-      <View style={componentStyles.weaknessContainer}>
-        <Text style={componentStyles.weaknessText}>
+      <View style={styles.weaknessContainer}>
+        <Text style={styles.weaknessText}>
           Weakness: {weaknesses.join(", ")}
         </Text>
       </View>
