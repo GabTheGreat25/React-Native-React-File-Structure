@@ -1,8 +1,8 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from "react-native";
-import { PokemonCard } from "./components";
-import { PokemonData } from "./data";
-import { appStyles } from "./styles";
+import { PokemonCard } from "@/components";
+import { PokemonData } from "@/data";
+import { appStyles } from "@/styles";
 
 const App = () => (
   <SafeAreaView style={appStyles.container}>
