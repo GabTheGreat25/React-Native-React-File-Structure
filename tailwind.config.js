@@ -8,32 +8,6 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
-      scrollbar: {
-        DEFAULT: {
-          size: "spacing.1",
-          track: { background: "lightgray" },
-          thumb: { background: "gray" },
-          hover: { background: "darkgray" },
-        },
-        thin: {
-          size: "2px",
-          track: { background: "lightgray" },
-          thumb: { background: "gray" },
-          hover: { background: "darkgray" },
-        },
-        primary: {
-          size: "1rem",
-          track: { background: "#FED3EF" },
-          thumb: { background: "#FDA7DF" },
-          hover: { background: "#F78FB3" },
-        },
-        secondary: {
-          size: ".5rem",
-          track: { background: "#FED3EF" },
-          thumb: { background: "#FDA7DF" },
-          hover: { background: "#F78FB3" },
-        },
-      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
