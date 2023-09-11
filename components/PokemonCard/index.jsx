@@ -16,8 +16,11 @@ export default function MyComponent({
   const styles = createStyles({ windowHeight, windowWidth });
 
   return (
-    <View style={styles.card}>
-      <View style={styles.nameContainer}>
+    <View
+      className={`p-2 m-2 bg-white border-2 rounded-xl`}
+      style={styles.card}
+    >
+      <View className="flex-row justify-between w-full mb-6">
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.hp}>❤️HP: {hp}</Text>
       </View>

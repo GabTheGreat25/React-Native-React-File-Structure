@@ -3,11 +3,6 @@ import { StyleSheet } from "react-native";
 export const createStyles = ({ windowHeight, windowWidth }) =>
   StyleSheet.create({
     card: {
-      backgroundColor: "white",
-      borderRadius: 16,
-      borderWidth: 2,
-      padding: 16,
-      margin: 16,
       ...Platform.select({
         ios: {
           shadowOffset: { width: 2, height: 2 },
