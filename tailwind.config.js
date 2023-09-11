@@ -4,7 +4,6 @@ module.exports = {
   prefix: "",
   darkMode: "class",
   content: ["./App.{js,jsx,ts,tsx}"],
-  purge: ["./App.{js,jsx,ts,tsx}"],
   mode: "jit",
   theme: {
     extend: {
