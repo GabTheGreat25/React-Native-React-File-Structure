@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, useWindowDimensions } from "react-native";
 import { PokemonType } from "@utils";
 import { createStyles } from "@styles";
+import { styled } from "nativewind";
 
 export default function MyComponent({
   name,
@@ -14,6 +15,7 @@ export default function MyComponent({
   const { borderColor, emoji } = PokemonType(type);
   const { height: windowHeight, width: windowWidth } = useWindowDimensions();
   const styles = createStyles({ windowHeight, windowWidth });
+  const StyledText = styled(Text, "text-xl font-bold");
 
   return (
     <View
@@ -21,30 +23,37 @@ export default function MyComponent({
       style={styles.card}
     >
       <View className="flex-row justify-between w-full mb-6">
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.hp}>❤️HP: {hp}</Text>
+        <Text className="text-2xl font-bold">{name}</Text>
+        <Text className="text-xl">❤️ HP: {hp}</Text>
       </View>
 
       <Image
         source={image}
         accessibilityLabel={`${name} Pokemon`}
-        style={styles.image}
+        className="w-full h-48 mb-4"
         resizeMode="contain"
       />
 
-      <View style={styles.typeContainer}>
-        <View style={[styles.badge, { borderColor }]}>
-          <Text style={styles.typeEmoji}>{emoji}</Text>
-          <Text style={styles.typeText}>{type}</Text>
+      <View className="flex-row items-center justify-center mb-7">
+        <View
+          className="flex-row items-center px-6 py-2 border-4 rounded-2xl"
+          style={{ borderColor }}
+        >
+          <Text className="mr-3 text-2xl">{emoji}</Text>
+          <StyledText>{type}</StyledText>
         </View>
       </View>
 
-      <View style={styles.movesContainer}>
-        <Text style={styles.movesText}>Moves: {moves.join(", ")}</Text>
+      <View className="mb-2">
+        <StyledText>Moves: {moves.join(", ")}</StyledText>
       </View>
 
-      <View style={styles.weaknessContainer}>
-        <Text style={styles.weaknessText}>
+      <View className="mb-2">
+        <Text
+          className={`font-bold ${
+            windowHeight > 100 && windowWidth > 100 ? "text-xl" : "text-base"
+          }`}
+        >
           Weakness: {weaknesses.join(", ")}
         </Text>
       </View>
