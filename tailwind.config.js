@@ -34,7 +34,7 @@ module.exports = {
           t5: "#FEE9F7",
         },
         secondary: {
-          default: "#E056FD",
+          primary: "#E056FD",
           variant: "#E678FD",
           accent: "#BE2EDD",
           t2: "#EC9AFE",
