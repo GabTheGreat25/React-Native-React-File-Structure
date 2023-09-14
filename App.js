@@ -1,20 +1,16 @@
-import { SafeAreaView, ScrollView } from "react-native";
-import { PokemonCard } from "@/components";
-import { PokemonData } from "@/data";
+import { Switch, Text, View } from "react-native";
+import { useColorScheme } from "nativewind";
 
-const App = () => (
-  <SafeAreaView
-    className={`flex-1 bg-primary-default ${
-      Platform.OS === "android" ? "pt-6" : "pt-0"
-    }`}
-  >
-    <ScrollView>
-      {PokemonData.map((pokemon, index) => {
-        console.log("Pokemon index:", pokemon);
-        return <PokemonCard key={index} {...pokemon} />;
-      })}
-    </ScrollView>
-  </SafeAreaView>
-);
-
-export default App;
+export default function App() {
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+  return (
+    <View className="items-center justify-center flex-1 bg-light-default dark:bg-dark-default">
+      <View className="flex-row w-full gap-5">
+        <Switch value={colorScheme === "dark"} onChange={toggleColorScheme} />
+        <Text selectable={false} className="dark:text-white">
+          {`Try clicking me! ${colorScheme === "dark" ? "🌙" : "🌞"}`}
+        </Text>
+      </View>
+    </View>
+  );
+}
